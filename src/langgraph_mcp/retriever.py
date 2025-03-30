@@ -23,6 +23,14 @@ def make_text_encoder(model: str) -> Embeddings:
     """Connect to the configured text encoder."""
     provider, model = model.split("/", maxsplit=1)
     match provider:
+        case "ollama":
+            from langchain_community.embeddings import OllamaEmbeddings
+
+            return OllamaEmbeddings(model=model)
+        case "google_genai":
+            from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
+            return GoogleGenerativeAIEmbeddings(model=model)
         case "openai":
             from langchain_openai import OpenAIEmbeddings
 

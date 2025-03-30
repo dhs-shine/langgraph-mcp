@@ -11,7 +11,7 @@ class Configuration:
     """Configuration class for MCP routing operations."""
 
     embedding_model: Annotated[str, {"__template_metadata__": {"kind": "embeddings"}}] = field(
-        default="openai/text-embedding-3-large",
+        default="ollama/nomic-embed-text",
         metadata={"description": "Embedding model to use."}
     )
 
@@ -33,14 +33,14 @@ class Configuration:
     )
 
     routing_query_model: Annotated[str, {"__template_metadata__": {"kind": "llm"}}] = field(
-        default="openai/gpt-4o",
+        default="google_genai/gemini-2.0-flash-exp",
         metadata={
             "description": "The language model used for processing and refining routing queries. Should be in the form: provider/model-name."
         },
     )
 
     summarize_conversation_model: Annotated[str, {"__template_metadata__": {"kind": "llm"}}] = field(
-        default="openai/gpt-4o",
+        default="google_genai/gemini-2.0-flash-exp",
         metadata={
             "description": "The language model used for summarizing conversations. Should be in the form: provider/model-name."
         },
@@ -57,7 +57,7 @@ class Configuration:
     )
 
     routing_response_model: Annotated[str, {"__template_metadata__": {"kind": "llm"}}] = field(
-        default="openai/gpt-4o",
+        default="google_genai/gemini-2.0-flash-exp",
         metadata={
             "description": "The language model used for generating routing responses. Should be in the form: provider/model-name."
         },
@@ -69,14 +69,14 @@ class Configuration:
     )
 
     mcp_orchestrator_model: Annotated[str, {"__template_metadata__": {"kind": "llm"}}] = field(
-        default="openai/gpt-4o",
+        default="google_genai/gemini-2.0-flash-exp",
         metadata={
             "description": "The language model used for MCP server orchestration. Should be in the form: provider/model-name."
         },
     )
     
     tool_refiner_model: Annotated[str, {"__template_metadata__": {"kind": "llm"}}] = field(
-        default="openai/gpt-4o",
+        default="google_genai/gemini-2.0-flash-exp",
         metadata={
             "description": "The language model used for rebinding the tool call. Should be in the form: provider/model-name."
         },
